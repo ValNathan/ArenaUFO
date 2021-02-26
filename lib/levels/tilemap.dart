@@ -61,11 +61,8 @@ class Tilemap {
 
         if (seenBoundsStart) {
           final idx = tileRow * ncols + col;
-          if (idx > tiles.length) {
-            print('line: $line, tileRow: $tileRow, col: $ncols, char: $char');
-          } else {
-            tiles[idx] = _tileFromChar(char);
-          }
+          assert(idx < tiles.length);
+          tiles[idx] = _tileFromChar(char);
         }
         if (char == BOUNDS_END) {
           break;
